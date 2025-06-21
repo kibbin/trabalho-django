@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Produtos - Notion (EP)</title>
+    </head>
+    <body>
+        <header>
+            <a href="http://127.0.0.1:8000/">
+                <p>< Voltar</p>
+            </a>
+            <h1>Lista de Produtos</h1>
+            <h2>.</h2>
+        </header>
+        <main>
+            {% for produto in produtos %}
+                <div class="itens-produto">
+                    {% if produto.imagem %}
+                        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="300">
+                    {% endif %}
+                    <p>{{ produto.nome }}</p>
+                    <p>R$ {{ produto.preco }}</p>
+                </div>
+            {% endfor %}
+        </main>
+
+    </body>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 2px;
+            font-weight: bolder;
+        }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .itens-produto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+        }
+
+        img {
+            border-radius: 5%;
+            background-color: white;
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        a {
+            color:palevioletred;
+        }
+
+        h2 {
+            color: black;
+        }
+
+    </style>
+</html>
